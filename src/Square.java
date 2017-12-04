@@ -36,13 +36,20 @@ public class Square
         this.number = number;
     }
 
-    public Set<Integer> getPossibles()
+    Set<Integer> getPossibles()
     {
         return possibles;
     }
 
-    public void setPossibles(Set<Integer> possibles)
+    void setPossibles(Set<Integer> possibles)
     {
         this.possibles = possibles;
+    }
+
+    void setPossiblesToFinalNumber(int number)
+    {
+        Set<Integer> finalSet = new HashSet<>();
+        finalSet.add(number);
+        possibles = finalSet;
     }
 }

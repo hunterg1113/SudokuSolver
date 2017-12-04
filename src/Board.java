@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.function.Predicate;
 
-public class Board
+public class Board implements Cloneable
 {
     private Square[][] sudokuBoard = new Square[9][9];
 
@@ -14,6 +14,16 @@ public class Board
                 sudokuBoard[i][j] = new Square();
             }
         }
+    }
+
+    Square[][] getSudokuBoard()
+    {
+        return sudokuBoard;
+    }
+
+    private void setSudokuBoard(Square[][] sudokuBoard)
+    {
+        this.sudokuBoard = sudokuBoard;
     }
 
     void addNumbersToBoard(int row, int column, int number)
@@ -31,7 +41,7 @@ public class Board
         }
         sudokuBoard[row][column].setPossibles(new HashSet<>(number));
 
-        setPossiblesBySquares();
+        sudokuBoard[row][column].setPossiblesToFinalNumber(number);
     }
 
     void setOnePossibles()
@@ -265,6 +275,10 @@ public class Board
                 if (!sudokuBoard[i][j].isDynamic())
                 {
                     setOfNumbersInUse.add(sudokuBoard[i][j].getNumber());
+                }
+                else if (sudokuBoard[i][j].isDynamic() && sudokuBoard[i][j].getNumber() < 0)
+                {
+                    setOfNumbersInUse.add(Math.abs(sudokuBoard[i][j].getNumber()));
                 }
             }
             if (setOfNumbersInUse.size() > 0)
@@ -1446,7 +1460,7 @@ public class Board
         {
             for (int j = 0; j < 9; j++)
             {
-                if (sudokuBoard[i][j].isDynamic())
+                if (sudokuBoard[i][j].isDynamic() || sudokuBoard[i][j].getPossibles().size() != 1)
                 {
                     return false;
                 }
@@ -1454,6 +1468,84 @@ public class Board
         }
 
         return true;
+    }
+
+    boolean checkForChangesInPossibles(Board board)
+    {
+        int possiblesCountOriginalState = 0;
+        int possiblesCountNewState = 0;
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (board.getSudokuBoard()[i][j].isDynamic())
+                {
+                    possiblesCountOriginalState += board.getSudokuBoard()[i][j].getPossibles().size();
+                }
+            }
+        }
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (sudokuBoard[i][j].isDynamic())
+                {
+                    possiblesCountNewState += sudokuBoard[i][j].getPossibles().size();
+                }
+            }
+        }
+
+        return possiblesCountOriginalState > possiblesCountNewState;
+    }
+
+    boolean onePossibleLeft()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (sudokuBoard[i][j].getPossibles().size() < 1)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    int countPossibles()
+    {
+        int possiblesCount = 0;
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (sudokuBoard[i][j].isDynamic())
+                {
+                    possiblesCount += sudokuBoard[i][j].getPossibles().size();
+                }
+            }
+        }
+        return possiblesCount;
+    }
+
+    void printPossiblesCount()
+    {
+        int possiblesCount = 0;
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (sudokuBoard[i][j].isDynamic())
+                {
+                    possiblesCount += sudokuBoard[i][j].getPossibles().size();
+                }
+            }
+        }
+        System.out.println("Possibles count: " + possiblesCount);
     }
 
     void printBoard()
@@ -1484,7 +1576,7 @@ public class Board
         {
             for (int j = 0; j < 9; j++)
             {
-                if (sudokuBoard[i][j].isDynamic())
+                //if (sudokuBoard[i][j].isDynamic())
                 {
                     System.out.print(sudokuBoard[i][j].getPossibles());
                 }

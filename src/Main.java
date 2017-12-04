@@ -3,6 +3,48 @@ public class Main
     public static void main(String[] args)
     {
         Board board = new Board();
+        board.addNumbersToBoard(0, 0, 6);
+        board.addNumbersToBoard(0, 4, 4);
+        board.addNumbersToBoard(0, 5, 5);
+        board.addNumbersToBoard(0, 6, 9);
+        board.addNumbersToBoard(0, 8, 3);
+
+        board.addNumbersToBoard(1, 3, 3);
+        board.addNumbersToBoard(1, 6, 4);
+
+        board.addNumbersToBoard(2, 1, 3);
+        board.addNumbersToBoard(2, 8, 6);
+
+        board.addNumbersToBoard(3, 0, 9);
+        board.addNumbersToBoard(3, 5, 6);
+
+        board.addNumbersToBoard(4, 1, 4);
+        board.addNumbersToBoard(4, 2, 6);
+        board.addNumbersToBoard(4, 6, 8);
+        board.addNumbersToBoard(4, 7, 5);
+
+        board.addNumbersToBoard(5, 3, 8);
+        board.addNumbersToBoard(5, 8, 1);
+
+        board.addNumbersToBoard(6, 0, 2);
+        board.addNumbersToBoard(6, 7, 1);
+
+        board.addNumbersToBoard(7, 2, 7);
+        board.addNumbersToBoard(7, 5, 9);
+
+        board.addNumbersToBoard(8, 0, 4);
+        board.addNumbersToBoard(8, 2, 8);
+        board.addNumbersToBoard(8, 3, 2);
+        board.addNumbersToBoard(8, 4, 3);
+        board.addNumbersToBoard(8, 8, 9);
+
+        SudokuSolver sudokuSolver = new SudokuSolver(board);
+        sudokuSolver.solve();
+    }
+}
+
+/*
+Hard level...
         board.addNumbersToBoard(0, 6, 1);
         board.addNumbersToBoard(0, 7, 9);
 
@@ -40,7 +82,51 @@ public class Main
         board.addNumbersToBoard(8, 1, 3);
         board.addNumbersToBoard(8, 2, 2);
 
-        SudokuSolver sudokuSolver = new SudokuSolver(board);
-        sudokuSolver.solve();
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Very hard level...
+        board.addNumbersToBoard(0, 2, 1);
+        board.addNumbersToBoard(0, 3, 5);
+
+        board.addNumbersToBoard(1, 2, 9);
+        board.addNumbersToBoard(1, 7, 5);
+        board.addNumbersToBoard(1, 8, 8);
+
+        board.addNumbersToBoard(2, 4, 9);
+        board.addNumbersToBoard(2, 6, 2);
+
+        board.addNumbersToBoard(3, 0, 8);
+        board.addNumbersToBoard(3, 5, 7);
+        board.addNumbersToBoard(3, 6, 3);
+        board.addNumbersToBoard(3, 7, 6);
+
+        board.addNumbersToBoard(4, 1, 7);
+        board.addNumbersToBoard(4, 4, 3);
+        board.addNumbersToBoard(4, 7, 9);
+
+        board.addNumbersToBoard(5, 1, 3);
+        board.addNumbersToBoard(5, 2, 2);
+        board.addNumbersToBoard(5, 3, 8);
+        board.addNumbersToBoard(5, 8, 7);
+
+        board.addNumbersToBoard(6, 2, 3);
+        board.addNumbersToBoard(6, 4, 6);
+
+        board.addNumbersToBoard(7, 0, 6);
+        board.addNumbersToBoard(7, 1, 8);
+        board.addNumbersToBoard(7, 6, 4);
+
+        board.addNumbersToBoard(8, 5, 3);
+        board.addNumbersToBoard(8, 6, 5);
+        */
