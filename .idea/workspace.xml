@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Board.java" afterPath="$PROJECT_DIR$/src/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Square.java" afterPath="$PROJECT_DIR$/src/Square.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuSolver.java" afterPath="$PROJECT_DIR$/src/SudokuSolver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,24 +17,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="786">
-              <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+            <state relative-caret-position="102">
+              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuSolver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SudokuSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="189">
+              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#solve#0;class#SudokuSolver#0" expanded="false" />
                 <element signature="method#guessFromTwoElementSets#0;class#SudokuSolver#0" expanded="false" />
+                <element signature="method#solveFurther#0;class#SudokuSolver#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,10 +44,10 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="478">
+              <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
               <folding>
-                <element signature="method#Board#0;class#Board#0" expanded="false" />
+                <element signature="method#clone#0;class#Board#0" expanded="false" />
                 <element signature="method#getSudokuBoard#0;class#Board#0" expanded="false" />
                 <element signature="method#setSudokuBoard#0;class#Board#0" expanded="false" />
                 <element signature="method#addNumbersToBoard#0;class#Board#0" expanded="false" />
@@ -90,6 +90,7 @@
                 <element signature="method#scanSquare8ForEqualSets#0;class#Board#0" expanded="false" />
                 <element signature="method#scanSquare9ForEqualSets#0;class#Board#0" expanded="false" />
                 <element signature="method#solved#0;class#Board#0" expanded="false" />
+                <element signature="method#unsolvable#0;class#Board#0" expanded="false" />
                 <element signature="method#checkForChangesInPossibles#0;class#Board#0" expanded="false" />
                 <element signature="method#onePossibleLeft#0;class#Board#0" expanded="false" />
                 <element signature="method#countPossibles#0;class#Board#0" expanded="false" />
@@ -104,13 +105,12 @@
       <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+            <state relative-caret-position="1323">
+              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setDynamic#0;class#Square#0" expanded="false" />
                 <element signature="method#setNumber#0;class#Square#0" expanded="false" />
-                <element signature="method#setPossiblesToFinalNumber#0;class#Square#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -138,9 +138,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/NumberEntry.java" />
         <option value="$PROJECT_DIR$/src/SudokuPuzzleSolver.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Square.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/SudokuSolver.java" />
       </list>
     </option>
@@ -166,9 +166,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -355,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512351516831</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="solves for &quot;evil&quot; level puzzles">
+      <created>1512413585934</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1512413585934</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -369,7 +376,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24679486" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53418803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -396,14 +403,15 @@
     <MESSAGE value="initial check-in" />
     <MESSAGE value="working with &quot;easy&quot; level sudoku puzzles" />
     <MESSAGE value="solves for &quot;hard&quot; level puzzles too" />
-    <option name="LAST_COMMIT_MESSAGE" value="solves for &quot;hard&quot; level puzzles too" />
+    <MESSAGE value="solves for &quot;evil&quot; level puzzles" />
+    <option name="LAST_COMMIT_MESSAGE" value="solves for &quot;evil&quot; level puzzles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Board.java</url>
-          <line>1509</line>
+          <line>1551</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
@@ -411,36 +419,25 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="35" />
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1026">
+          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SudokuSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#guessFromTwoElementSets#0;class#SudokuSolver#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#clone#0;class#Board#0" expanded="false" />
             <element signature="method#getSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#setSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#addNumbersToBoard#0;class#Board#0" expanded="false" />
@@ -483,6 +480,110 @@
             <element signature="method#scanSquare8ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#scanSquare9ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#solved#0;class#Board#0" expanded="false" />
+            <element signature="method#unsolvable#0;class#Board#0" expanded="false" />
+            <element signature="method#checkForChangesInPossibles#0;class#Board#0" expanded="false" />
+            <element signature="method#onePossibleLeft#0;class#Board#0" expanded="false" />
+            <element signature="method#countPossibles#0;class#Board#0" expanded="false" />
+            <element signature="method#printPossiblesCount#0;class#Board#0" expanded="false" />
+            <element signature="method#printBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#printPossibles#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setDynamic#0;class#Square#0" expanded="false" />
+            <element signature="method#setNumber#0;class#Square#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="method#solve#0;class#SudokuSolver#0" expanded="false" />
+            <element signature="method#guessFromTwoElementSets#0;class#SudokuSolver#0" expanded="false" />
+            <element signature="method#solveFurther#0;class#SudokuSolver#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SudokuSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding>
+            <element signature="method#solve#0;class#SudokuSolver#0" expanded="false" />
+            <element signature="method#guessFromTwoElementSets#0;class#SudokuSolver#0" expanded="false" />
+            <element signature="method#solveFurther#0;class#SudokuSolver#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="method#clone#0;class#Board#0" expanded="false" />
+            <element signature="method#getSudokuBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#setSudokuBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#addNumbersToBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#setOnePossibles#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElement#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementByRow#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementByColumn#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementBySquares#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForEqualSetsByRow#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForEqualSetsByColumn#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForEqualSetsBySquares#0;class#Board#0" expanded="false" />
+            <element signature="method#setPossibles#0;class#Board#0" expanded="false" />
+            <element signature="method#setPossiblesBySquares#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare1#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare2#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare3#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare4#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare5#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare6#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare7#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare8#0;class#Board#0" expanded="false" />
+            <element signature="method#setSquare9#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare1#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare2#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare3#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare4#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare5#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare6#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare7#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare8#0;class#Board#0" expanded="false" />
+            <element signature="method#scanForUniqueSetElementSquare9#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare1ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare2ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare3ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare4ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare5ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare6ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare7ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare8ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#scanSquare9ForEqualSets#0;class#Board#0" expanded="false" />
+            <element signature="method#solved#0;class#Board#0" expanded="false" />
+            <element signature="method#unsolvable#0;class#Board#0" expanded="false" />
             <element signature="method#checkForChangesInPossibles#0;class#Board#0" expanded="false" />
             <element signature="method#onePossibleLeft#0;class#Board#0" expanded="false" />
             <element signature="method#countPossibles#0;class#Board#0" expanded="false" />
@@ -506,7 +607,7 @@
         <state relative-caret-position="4320">
           <caret line="160" column="4" lean-forward="true" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
           <folding>
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#clone#0;class#Board#0" expanded="false" />
             <element signature="method#getSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#setSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#addNumbersToBoard#0;class#Board#0" expanded="false" />
@@ -549,6 +650,7 @@
             <element signature="method#scanSquare8ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#scanSquare9ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#solved#0;class#Board#0" expanded="false" />
+            <element signature="method#unsolvable#0;class#Board#0" expanded="false" />
             <element signature="method#checkForChangesInPossibles#0;class#Board#0" expanded="false" />
             <element signature="method#onePossibleLeft#0;class#Board#0" expanded="false" />
             <element signature="method#countPossibles#0;class#Board#0" expanded="false" />
@@ -584,7 +686,7 @@
         <state relative-caret-position="3132">
           <caret line="116" column="4" lean-forward="false" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
           <folding>
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#clone#0;class#Board#0" expanded="false" />
             <element signature="method#getSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#setSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#addNumbersToBoard#0;class#Board#0" expanded="false" />
@@ -627,6 +729,7 @@
             <element signature="method#scanSquare8ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#scanSquare9ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#solved#0;class#Board#0" expanded="false" />
+            <element signature="method#unsolvable#0;class#Board#0" expanded="false" />
             <element signature="method#checkForChangesInPossibles#0;class#Board#0" expanded="false" />
             <element signature="method#onePossibleLeft#0;class#Board#0" expanded="false" />
             <element signature="method#countPossibles#0;class#Board#0" expanded="false" />
@@ -665,23 +768,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Square.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        <state relative-caret-position="1323">
+          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setDynamic#0;class#Square#0" expanded="false" />
             <element signature="method#setNumber#0;class#Square#0" expanded="false" />
-            <element signature="method#setPossiblesToFinalNumber#0;class#Square#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="478">
+          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
           <folding>
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#clone#0;class#Board#0" expanded="false" />
             <element signature="method#getSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#setSudokuBoard#0;class#Board#0" expanded="false" />
             <element signature="method#addNumbersToBoard#0;class#Board#0" expanded="false" />
@@ -724,6 +826,7 @@
             <element signature="method#scanSquare8ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#scanSquare9ForEqualSets#0;class#Board#0" expanded="false" />
             <element signature="method#solved#0;class#Board#0" expanded="false" />
+            <element signature="method#unsolvable#0;class#Board#0" expanded="false" />
             <element signature="method#checkForChangesInPossibles#0;class#Board#0" expanded="false" />
             <element signature="method#onePossibleLeft#0;class#Board#0" expanded="false" />
             <element signature="method#countPossibles#0;class#Board#0" expanded="false" />
@@ -734,22 +837,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/SudokuSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="786">
-          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="method#solve#0;class#SudokuSolver#0" expanded="false" />
+            <element signature="method#guessFromTwoElementSets#0;class#SudokuSolver#0" expanded="false" />
+            <element signature="method#solveFurther#0;class#SudokuSolver#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SudokuSolver.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#guessFromTwoElementSets#0;class#SudokuSolver#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

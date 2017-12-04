@@ -16,6 +16,30 @@ public class Board implements Cloneable
         }
     }
 
+    public Board clone()
+    {
+        try
+        {
+            super.clone();
+        } catch (Exception e)
+        {
+            //do nothing
+        }
+
+        Board cloneBoard = new Board();
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                cloneBoard.getSudokuBoard()[i][j].setNumber(new Integer(sudokuBoard[i][j].getNumber()));
+                cloneBoard.getSudokuBoard()[i][j].setPossibles(new HashSet<>(sudokuBoard[i][j].getPossibles()));
+                cloneBoard.getSudokuBoard()[i][j].setDynamic(new Boolean(sudokuBoard[i][j].isDynamic()));
+            }
+        }
+
+        return cloneBoard;
+    }
+
     Square[][] getSudokuBoard()
     {
         return sudokuBoard;
@@ -1470,6 +1494,24 @@ public class Board implements Cloneable
         return true;
     }
 
+    boolean unsolvable()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                List<Integer> list = new ArrayList<>(sudokuBoard[i][j].getPossibles());
+
+                if (list.isEmpty())
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     boolean checkForChangesInPossibles(Board board)
     {
         int possiblesCountOriginalState = 0;
@@ -1571,7 +1613,7 @@ public class Board implements Cloneable
 
     void printPossibles()
     {
-        System.out.println("******************");
+        System.out.println("***************************");
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
@@ -1583,5 +1625,6 @@ public class Board implements Cloneable
             }
             System.out.println();
         }
+        System.out.println("***************************");
     }
 }
