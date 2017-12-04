@@ -1592,7 +1592,7 @@ public class Board implements Cloneable
 
     void printBoard()
     {
-        System.out.println("****************");
+        System.out.println("***************************");
 
         for (int i = 0; i < 9; i++)
         {
@@ -1600,11 +1600,11 @@ public class Board implements Cloneable
             {
                 if (sudokuBoard[i][j].isDynamic())
                 {
-                    System.out.print(" ");
+                    System.out.print("[ ]");
                 }
                 else
                 {
-                    System.out.print(sudokuBoard[i][j].getNumber());
+                    System.out.print("[" + sudokuBoard[i][j].getNumber() + "]");
                 }
             }
             System.out.println();

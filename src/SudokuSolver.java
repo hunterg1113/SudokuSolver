@@ -14,6 +14,8 @@ public class SudokuSolver
     {
         boolean changesMadeToPossibles = true;
 
+        board.printBoard();
+
         board.setOnePossibles();
 
         while (!board.solved() && changesMadeToPossibles)
@@ -55,12 +57,19 @@ public class SudokuSolver
 
                     if (boardClone.solved())
                     {
-                        boardClone.printPossibles();
                         keepSearching = false;
+                        boardClone.printPossibles();
                     }
                     else if (boardClone.unsolvable())
                     {
+                        keepSearching = false;
                         board.getSudokuBoard()[i][j].getPossibles().remove(list.get(1));
+                        solve();
+                    }
+                    else
+                    {
+                        keepSearching = false;
+                        board.getSudokuBoard()[i][j].getPossibles().remove(list.get(0));
                         solve();
                     }
                 }
