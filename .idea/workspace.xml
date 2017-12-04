@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9fbc2a2b-5160-499d-8417-2e9f47ed43b3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SudokuSolver.java" afterPath="$PROJECT_DIR$/src/SudokuSolver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +17,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-297">
+            <state relative-caret-position="513">
               <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
               <folding />
             </state>
@@ -314,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512349085493</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="solves for &quot;hard&quot; level puzzles too">
+      <created>1512351481509</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1512351481509</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -354,7 +359,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial check-in" />
     <MESSAGE value="working with &quot;easy&quot; level sudoku puzzles" />
-    <option name="LAST_COMMIT_MESSAGE" value="working with &quot;easy&quot; level sudoku puzzles" />
+    <MESSAGE value="solves for &quot;hard&quot; level puzzles too" />
+    <option name="LAST_COMMIT_MESSAGE" value="solves for &quot;hard&quot; level puzzles too" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -596,7 +602,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-297">
+        <state relative-caret-position="513">
           <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
           <folding />
         </state>
