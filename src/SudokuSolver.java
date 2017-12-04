@@ -13,6 +13,7 @@ public class SudokuSolver
 
         while(!board.solved())
         {
+            board.printPossibles();
             board.setPossibles();
             board.scanForUniqueSetElement();
             board.scanForEqualSets();
