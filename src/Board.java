@@ -16,28 +16,9 @@ public class Board implements Cloneable
         }
     }
 
-    public Board clone()
+    public Object clone() throws CloneNotSupportedException
     {
-        try
-        {
-            super.clone();
-        } catch (Exception e)
-        {
-            //do nothing
-        }
-
-        Board cloneBoard = new Board();
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                cloneBoard.getSudokuBoard()[i][j].setNumber(new Integer(sudokuBoard[i][j].getNumber()));
-                cloneBoard.getSudokuBoard()[i][j].setPossibles(new HashSet<>(sudokuBoard[i][j].getPossibles()));
-                cloneBoard.getSudokuBoard()[i][j].setDynamic(new Boolean(sudokuBoard[i][j].isDynamic()));
-            }
-        }
-
-        return cloneBoard;
+        return super.clone();
     }
 
     Square[][] getSudokuBoard()

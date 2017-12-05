@@ -1,6 +1,6 @@
 public class Main
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws CloneNotSupportedException
     {
         Board board = new Board();
         board.addNumbersToBoard(0, 4, 8);
@@ -10,7 +10,6 @@ public class Main
         board.addNumbersToBoard(1, 7, 8);
 
         board.addNumbersToBoard(2, 1, 5);
-        board.addNumbersToBoard(2, 6, 6);
 
         board.addNumbersToBoard(3, 0, 2);
         board.addNumbersToBoard(3, 5, 1);
@@ -22,7 +21,6 @@ public class Main
         board.addNumbersToBoard(5, 8, 4);
 
         board.addNumbersToBoard(6, 2, 8);
-        board.addNumbersToBoard(6, 7, 4);
 
         board.addNumbersToBoard(7, 1, 6);
         board.addNumbersToBoard(7, 2, 7);

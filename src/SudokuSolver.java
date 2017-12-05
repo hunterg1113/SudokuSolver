@@ -10,7 +10,7 @@ public class SudokuSolver
         this.board = board;
     }
 
-    void solve()
+    void solve() throws CloneNotSupportedException
     {
         boolean changesMadeToPossibles = true;
 
@@ -39,7 +39,7 @@ public class SudokuSolver
         }
     }
 
-    private void guessFromTwoElementSets()
+    private void guessFromTwoElementSets() throws CloneNotSupportedException
     {
         boolean keepSearching = true;
 
@@ -51,7 +51,7 @@ public class SudokuSolver
                 {
                     List<Integer> list = new ArrayList<>(board.getSudokuBoard()[i][j].getPossibles());
 
-                    Board boardClone = board.clone();
+                    Board boardClone = (Board)board.clone();
                     boardClone.getSudokuBoard()[i][j].getPossibles().remove(list.get(0));
                     solveFurther(boardClone);
 
