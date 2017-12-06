@@ -1,7 +1,6 @@
 import java.util.*;
-import java.util.function.Predicate;
 
-public class Board implements Cloneable
+class Board
 {
     private Square[][] sudokuBoard = new Square[9][9];
 
@@ -16,19 +15,26 @@ public class Board implements Cloneable
         }
     }
 
-    public Object clone() throws CloneNotSupportedException
+    Board copyBoard()
     {
-        return super.clone();
+        Board clone = new Board();
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                clone.sudokuBoard[i][j].setDynamic(this.sudokuBoard[i][j].isDynamic());
+                clone.sudokuBoard[i][j].setNumber(this.sudokuBoard[i][j].getNumber());
+                clone.sudokuBoard[i][j].setPossibles(new HashSet<>(this.sudokuBoard[i][j].getPossibles()));
+            }
+        }
+
+        return clone;
     }
 
     Square[][] getSudokuBoard()
     {
         return sudokuBoard;
-    }
-
-    private void setSudokuBoard(Square[][] sudokuBoard)
-    {
-        this.sudokuBoard = sudokuBoard;
     }
 
     void addNumbersToBoard(int row, int column, int number)
@@ -161,14 +167,14 @@ public class Board implements Cloneable
         scanForUniqueSetElementSquare9();
     }
 
-    void scanForEqualSets()
+    void scanForEqualSetsOfTwo()
     {
-        scanForEqualSetsByRow();
-        scanForEqualSetsByColumn();
-        scanForEqualSetsBySquares();
+        scanForEqualSetsOfTwoByRow();
+        scanForEqualSetsOfTwoByColumn();
+        scanForEqualSetsOfTwoBySquares();
     }
 
-    private void scanForEqualSetsByRow()
+    private void scanForEqualSetsOfTwoByRow()
     {
         for (int i = 0; i < 9; i++)
         {
@@ -212,7 +218,7 @@ public class Board implements Cloneable
         }
     }
 
-    private void scanForEqualSetsByColumn()
+    private void scanForEqualSetsOfTwoByColumn()
     {
         for (int i = 0; i < 9; i++)
         {
@@ -256,7 +262,7 @@ public class Board implements Cloneable
         }
     }
 
-    private void scanForEqualSetsBySquares()
+    private void scanForEqualSetsOfTwoBySquares()
     {
         scanSquare1ForEqualSets();
         scanSquare2ForEqualSets();
@@ -281,9 +287,9 @@ public class Board implements Cloneable
                 {
                     setOfNumbersInUse.add(sudokuBoard[i][j].getNumber());
                 }
-                else if (sudokuBoard[i][j].isDynamic() && sudokuBoard[i][j].getNumber() < 0)
+                else if (sudokuBoard[i][j].isDynamic())
                 {
-                    setOfNumbersInUse.add(Math.abs(sudokuBoard[i][j].getNumber()));
+                    setOfNumbersInUse.add(sudokuBoard[i][j].getNumber());
                 }
             }
             if (setOfNumbersInUse.size() > 0)
@@ -1465,7 +1471,7 @@ public class Board implements Cloneable
         {
             for (int j = 0; j < 9; j++)
             {
-                if (sudokuBoard[i][j].isDynamic() || sudokuBoard[i][j].getPossibles().size() != 1)
+                if (sudokuBoard[i][j].isDynamic())
                 {
                     return false;
                 }
@@ -1475,7 +1481,7 @@ public class Board implements Cloneable
         return true;
     }
 
-    boolean unsolvable()
+    boolean isSolvable()
     {
         for (int i = 0; i < 9; i++)
         {
@@ -1485,55 +1491,11 @@ public class Board implements Cloneable
 
                 if (list.isEmpty())
                 {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    boolean checkForChangesInPossibles(Board board)
-    {
-        int possiblesCountOriginalState = 0;
-        int possiblesCountNewState = 0;
-
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (board.getSudokuBoard()[i][j].isDynamic())
-                {
-                    possiblesCountOriginalState += board.getSudokuBoard()[i][j].getPossibles().size();
-                }
-            }
-        }
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (sudokuBoard[i][j].isDynamic())
-                {
-                    possiblesCountNewState += sudokuBoard[i][j].getPossibles().size();
-                }
-            }
-        }
-
-        return possiblesCountOriginalState > possiblesCountNewState;
-    }
-
-    boolean onePossibleLeft()
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (sudokuBoard[i][j].getPossibles().size() < 1)
-                {
                     return false;
                 }
             }
         }
+
         return true;
     }
 
@@ -1554,21 +1516,22 @@ public class Board implements Cloneable
         return possiblesCount;
     }
 
-    void printPossiblesCount()
+    int findSmallestSetSize()
     {
-        int possiblesCount = 0;
+        int smallestPossiblesSize = 10;
 
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
             {
-                if (sudokuBoard[i][j].isDynamic())
+                if (sudokuBoard[i][j].isDynamic() && sudokuBoard[i][j].getPossibles().size() < smallestPossiblesSize)
                 {
-                    possiblesCount += sudokuBoard[i][j].getPossibles().size();
+                    smallestPossiblesSize = sudokuBoard[i][j].getPossibles().size();
                 }
             }
         }
-        System.out.println("Possibles count: " + possiblesCount);
+
+        return smallestPossiblesSize;
     }
 
     void printBoard()

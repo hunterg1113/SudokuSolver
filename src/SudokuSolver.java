@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class SudokuSolver
 {
     private Board board;
@@ -8,15 +9,12 @@ public class SudokuSolver
     public SudokuSolver(Board board)
     {
         this.board = board;
+        board.printBoard();
     }
 
-    void solve() throws CloneNotSupportedException
+    void solve()
     {
         boolean changesMadeToPossibles = true;
-
-        board.printBoard();
-
-        board.setOnePossibles();
 
         while (!board.solved() && changesMadeToPossibles)
         {
@@ -24,14 +22,15 @@ public class SudokuSolver
 
             board.setPossibles();
             board.scanForUniqueSetElement();
-            board.scanForEqualSets();
+            board.scanForEqualSetsOfTwo();
             board.setOnePossibles();
             changesMadeToPossibles = originalPossiblesCount > board.countPossibles();
         }
 
         if (!board.solved())
         {
-            guessFromTwoElementSets();
+            board.printBoard();
+            guessFromElementSets();
         }
         else
         {
@@ -39,38 +38,32 @@ public class SudokuSolver
         }
     }
 
-    private void guessFromTwoElementSets() throws CloneNotSupportedException
+    private void guessFromElementSets()
     {
+        int setSize = board.findSmallestSetSize();
         boolean keepSearching = true;
 
         for (int i = 0; i < 9 && keepSearching; i++)
         {
             for (int j = 0; j < 9 && keepSearching; j++)
             {
-                if (board.getSudokuBoard()[i][j].isDynamic() && board.getSudokuBoard()[i][j].getPossibles().size() == 2)
+                if (board.getSudokuBoard()[i][j].isDynamic() && board.getSudokuBoard()[i][j].getPossibles().size() == setSize)
                 {
+                    keepSearching = false;
                     List<Integer> list = new ArrayList<>(board.getSudokuBoard()[i][j].getPossibles());
 
-                    Board boardClone = (Board)board.clone();
-                    boardClone.getSudokuBoard()[i][j].getPossibles().remove(list.get(0));
-                    solveFurther(boardClone);
+                    for (int number : list)
+                    {
+                        Board boardClone = board.copyBoard();
+                        boardClone.getSudokuBoard()[i][j].getPossibles().remove(number);
+                        solveFurther(boardClone);
 
-                    if (boardClone.solved())
-                    {
-                        keepSearching = false;
-                        boardClone.printPossibles();
-                    }
-                    else if (boardClone.unsolvable())
-                    {
-                        keepSearching = false;
-                        board.getSudokuBoard()[i][j].getPossibles().remove(list.get(1));
-                        solve();
-                    }
-                    else
-                    {
-                        keepSearching = false;
-                        board.getSudokuBoard()[i][j].getPossibles().remove(list.get(0));
-                        solve();
+                        if (boardClone.solved() || boardClone.isSolvable())
+                        {
+                            board.getSudokuBoard()[i][j].getPossibles().remove(number);
+                            solve();
+                            break;
+                        }
                     }
                 }
             }
@@ -81,15 +74,13 @@ public class SudokuSolver
     {
         boolean changesMadeToPossibles = true;
 
-        board.setOnePossibles();
-
         while (!board.solved() && changesMadeToPossibles)
         {
             Integer originalPossiblesCount = board.countPossibles();
 
             board.setPossibles();
             board.scanForUniqueSetElement();
-            board.scanForEqualSets();
+            board.scanForEqualSetsOfTwo();
             board.setOnePossibles();
             changesMadeToPossibles = originalPossiblesCount > board.countPossibles();
         }

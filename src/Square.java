@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Square
+class Square
 {
     private boolean dynamic;
     private int number;
