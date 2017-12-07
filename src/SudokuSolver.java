@@ -29,7 +29,6 @@ public class SudokuSolver
 
         if (!board.solved())
         {
-            board.printBoard();
             guessFromElementSets();
         }
         else

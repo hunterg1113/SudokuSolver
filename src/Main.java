@@ -115,7 +115,9 @@ Super dooper hard...
         board.addNumbersToBoard(8, 0, 5);
         board.addNumbersToBoard(8, 8, 2);
 
-Super dooper dooper hard...
+
+
+
         board.addNumbersToBoard(0, 6, 1);
         board.addNumbersToBoard(0, 7, 9);
 
