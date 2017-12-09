@@ -3,16 +3,41 @@ public class Main
     public static void main(String[] args) throws CloneNotSupportedException, InterruptedException
     {
         Board board = new Board();
-        board.addNumbersToBoard(2, 1, 5);
-        board.addNumbersToBoard(3, 0, 2);
-        board.addNumbersToBoard(4, 2, 9);
-        board.addNumbersToBoard(5, 3, 8);
-        board.addNumbersToBoard(6, 2, 8);
-        board.addNumbersToBoard(7, 1, 6);
-        board.addNumbersToBoard(8, 0, 5);
 
-        SudokuSolver sudokuSolver = new SudokuSolver(board);
-        sudokuSolver.solve();
+        board.addNumbersToBoard(0, 2, 1);
+        board.addNumbersToBoard(0, 3, 5);
+
+        board.addNumbersToBoard(1, 2, 9);
+        board.addNumbersToBoard(1, 7, 5);
+        board.addNumbersToBoard(1, 8, 8);
+
+        board.addNumbersToBoard(2, 4, 9);
+        board.addNumbersToBoard(2, 6, 2);
+
+        board.addNumbersToBoard(3, 0, 8);
+        board.addNumbersToBoard(3, 5, 7);
+        board.addNumbersToBoard(3, 6, 3);
+        board.addNumbersToBoard(3, 7, 6);
+
+        board.addNumbersToBoard(4, 1, 7);
+        board.addNumbersToBoard(4, 4, 3);
+        board.addNumbersToBoard(4, 7, 9);
+
+        board.addNumbersToBoard(5, 3, 8);
+        board.addNumbersToBoard(5, 8, 7);
+
+        board.addNumbersToBoard(6, 2, 3);
+        board.addNumbersToBoard(6, 4, 6);
+
+        board.addNumbersToBoard(7, 0, 6);
+        board.addNumbersToBoard(7, 1, 8);
+        board.addNumbersToBoard(7, 6, 4);
+
+        board.addNumbersToBoard(8, 5, 3);
+        board.addNumbersToBoard(8, 6, 5);
+
+        SudokuSolver sudokuSolver = new SudokuSolver();
+        sudokuSolver.solve(board);
     }
 }
 

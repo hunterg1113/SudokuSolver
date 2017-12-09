@@ -72,7 +72,7 @@ class Board
         }
     }
 
-    void scanForUniqueSetElement()
+    void scanForUniqueSetElement() throws InterruptedException
     {
         scanForUniqueSetElementByRow();
         scanForUniqueSetElementByColumn();
@@ -154,20 +154,37 @@ class Board
         }
     }
 
-    private void scanForUniqueSetElementBySquares()
+    private void scanForUniqueSetElementBySquares() throws InterruptedException
     {
-        scanForUniqueSetElementSquare1();
-        scanForUniqueSetElementSquare2();
-        scanForUniqueSetElementSquare3();
-        scanForUniqueSetElementSquare4();
-        scanForUniqueSetElementSquare5();
-        scanForUniqueSetElementSquare6();
-        scanForUniqueSetElementSquare7();
-        scanForUniqueSetElementSquare8();
-        scanForUniqueSetElementSquare9();
+        Thread t1 = new Thread(() ->
+        {
+            scanForUniqueSetElementSquare1();
+            scanForUniqueSetElementSquare2();
+            scanForUniqueSetElementSquare3();
+        });
+        Thread t2 = new Thread(() ->
+        {
+            scanForUniqueSetElementSquare4();
+            scanForUniqueSetElementSquare5();
+            scanForUniqueSetElementSquare6();
+        });
+        Thread t3 = new Thread(() ->
+        {
+            scanForUniqueSetElementSquare7();
+            scanForUniqueSetElementSquare8();
+            scanForUniqueSetElementSquare9();
+        });
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+        t1.join();
+        t2.join();
+        t3.join();
     }
 
-    void scanForEqualSetsOfTwo()
+    void scanForEqualSetsOfTwo() throws InterruptedException
     {
         scanForEqualSetsOfTwoByRow();
         scanForEqualSetsOfTwoByColumn();
@@ -262,20 +279,37 @@ class Board
         }
     }
 
-    private void scanForEqualSetsOfTwoBySquares()
+    private void scanForEqualSetsOfTwoBySquares() throws InterruptedException
     {
-        scanSquare1ForEqualSets();
-        scanSquare2ForEqualSets();
-        scanSquare3ForEqualSets();
-        scanSquare4ForEqualSets();
-        scanSquare5ForEqualSets();
-        scanSquare6ForEqualSets();
-        scanSquare7ForEqualSets();
-        scanSquare8ForEqualSets();
-        scanSquare9ForEqualSets();
+        Thread t1 = new Thread(() ->
+        {
+            scanSquare1ForEqualSets();
+            scanSquare2ForEqualSets();
+            scanSquare3ForEqualSets();
+        });
+        Thread t2 = new Thread(() ->
+        {
+            scanSquare4ForEqualSets();
+            scanSquare5ForEqualSets();
+            scanSquare6ForEqualSets();
+        });
+        Thread t3 = new Thread(() ->
+        {
+            scanSquare7ForEqualSets();
+            scanSquare8ForEqualSets();
+            scanSquare9ForEqualSets();
+        });
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+        t1.join();
+        t2.join();
+        t3.join();
     }
 
-    void setPossibles()
+    void setPossibles() throws InterruptedException
     {
         for (int i = 0; i < 9; i++)
         {
@@ -336,17 +370,35 @@ class Board
         setPossiblesBySquares();
     }
 
-    private void setPossiblesBySquares()
+    private void setPossiblesBySquares() throws InterruptedException
     {
-        setSquare1();
-        setSquare2();
-        setSquare3();
-        setSquare4();
-        setSquare5();
-        setSquare6();
-        setSquare7();
-        setSquare8();
-        setSquare9();
+        Thread t1 = new Thread(() ->
+        {
+            setSquare1();
+            setSquare2();
+            setSquare3();
+        });
+        Thread t2 = new Thread(() ->
+        {
+            setSquare4();
+            setSquare5();
+            setSquare6();
+        });
+        Thread t3 = new Thread(() ->
+        {
+            setSquare7();
+            setSquare8();
+            setSquare9();
+        });
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+        t1.join();
+        t2.join();
+        t3.join();
+
     }
 
     private void setSquare1()
@@ -1534,7 +1586,7 @@ class Board
         return smallestPossiblesSize;
     }
 
-    void printBoard()
+    synchronized void printBoard()
     {
         System.out.println("***************************");
 

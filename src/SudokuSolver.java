@@ -4,22 +4,19 @@ import java.util.List;
 
 public class SudokuSolver
 {
-    private Board board;
+    int count = 0;
 
-    public SudokuSolver(Board board)
+    public SudokuSolver()
+    {}
+
+    void solve(Board board) throws InterruptedException
     {
-        this.board = board;
         board.printBoard();
-    }
-
-    void solve()
-    {
         boolean changesMadeToPossibles = true;
 
         while (!board.solved() && changesMadeToPossibles)
         {
-            Integer originalPossiblesCount = board.countPossibles();
-
+            int originalPossiblesCount = board.countPossibles();
             board.setPossibles();
             board.scanForUniqueSetElement();
             board.scanForEqualSetsOfTwo();
@@ -27,17 +24,22 @@ public class SudokuSolver
             changesMadeToPossibles = originalPossiblesCount > board.countPossibles();
         }
 
-        if (!board.solved())
+        if (board.solved())
         {
-            guessFromElementSets();
+            incrementCount();
+            board.printBoard();
         }
         else
         {
-            board.printPossibles();
+            guessFromElementSets(board);
         }
+
+        System.out.println("***************************");
+        System.out.println("# of solutions : " + count);
+        System.out.println("***************************");
     }
 
-    private void guessFromElementSets()
+    private void guessFromElementSets(Board board) throws InterruptedException
     {
         int setSize = board.findSmallestSetSize();
         boolean keepSearching = true;
@@ -48,28 +50,43 @@ public class SudokuSolver
             {
                 if (board.getSudokuBoard()[i][j].isDynamic() && board.getSudokuBoard()[i][j].getPossibles().size() == setSize)
                 {
+                    final int row = i;
+                    final int column = j;
                     keepSearching = false;
                     List<Integer> list = new ArrayList<>(board.getSudokuBoard()[i][j].getPossibles());
-
+                    List<Thread> threads = new ArrayList<>();
                     for (int number : list)
                     {
-                        Board boardClone = board.copyBoard();
-                        boardClone.getSudokuBoard()[i][j].getPossibles().remove(number);
-                        solveFurther(boardClone);
-
-                        if (boardClone.solved() || boardClone.isSolvable())
+                        Thread thread = new Thread(() ->
                         {
-                            board.getSudokuBoard()[i][j].getPossibles().remove(number);
-                            solve();
-                            break;
-                        }
+                            Board boardClone = board.copyBoard();
+                            boardClone.getSudokuBoard()[row][column].getPossibles().remove(number);
+                            try{solveFurther(boardClone);} catch(InterruptedException ie){}
+
+                            if (boardClone.solved())
+                            {
+                                incrementCount();
+                                boardClone.printBoard();
+                            }
+                            else if (boardClone.isSolvable())
+                            {
+                                try{guessFromElementSets(boardClone);} catch(InterruptedException ie){}
+                            }
+                        });
+
+                        threads.add(thread);
+                        thread.start();
+                    }
+                    for(Thread thread : threads)
+                    {
+                        thread.join();
                     }
                 }
             }
         }
     }
 
-    private void solveFurther(Board board)
+    private void solveFurther(Board board) throws InterruptedException
     {
         boolean changesMadeToPossibles = true;
 
@@ -83,5 +100,10 @@ public class SudokuSolver
             board.setOnePossibles();
             changesMadeToPossibles = originalPossiblesCount > board.countPossibles();
         }
+    }
+
+    private synchronized void incrementCount()
+    {
+        count++;
     }
 }
